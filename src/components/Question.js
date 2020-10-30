@@ -76,25 +76,27 @@ class Question extends React.Component {
     render(){
         if(this.moreQuestions()){
             return(
-                <div className="questionContainer">
-                    <div className="questionQuestion">Question : {this.state.question} </div>
-                    <ul className="questionPotentialAnswersUL">Potential Answers:
-                        {this.shuffle([...new Set(this.combine(this.state.incorrect, this.state.correct))]).map(answer=> {
-                            return <li  className="questionAnswerLI"
-                                        key={answer}
-                                        onClick={() => (this.onAnswerLIClick(answer)) }
-                                        >{answer}</li>
-                        })}
-                    </ul>
-                    <div className="questionCorrect">Correct: {this.state.correct}</div>
+                <div>
+                    <div className="questionContainer">
+                        <div className="questionQuestion">Question {this.index + 1}: {this.state.question} </div>
+                        <ul className="questionPotentialAnswersUL">
+                            {this.shuffle([...new Set(this.combine(this.state.incorrect, this.state.correct))]).map(answer=> {
+                                return  <li className="questionAnswerLI"
+                                key={answer}
+                                onClick={() => (this.onAnswerLIClick(answer))}>
+                                                {answer}
+                                        </li>
+                            })}
+                        </ul>
+                    </div>
                     <div className="questionScore">Score: {this.state.score}</div>
                 </div>
             )
         }else{
             return(
                 <div className="gameOverContainer">
-                    <div>Game Over!</div>
-                    <div onClick={() => (this.resetButton())}>Try again?</div>
+                    <div className="gameOverMessage">Game over! Your final score was {this.state.score}</div>
+                    <div className="gameOverReset"onClick={() => (this.resetButton())}>Try again?</div>
                 </div>
             )
         }

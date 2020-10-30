@@ -1,3 +1,4 @@
+
 .questionPotentialAnswersUL{
     list-style-type: none
 }
@@ -5,4 +6,10 @@
 .questionAnswerLI:hover{
     background-color: greenyellow;
     color: black;
+}
+
+.questionScore{
+    position:absolute;
+    bottom:5%;
+    right:5%;
 }
