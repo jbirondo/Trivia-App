@@ -7,9 +7,13 @@
     list-style-type: none
 }
 
+.questionAnswerLI{
+    padding: 3px 0 3px 0
+}
+
 .questionAnswerLI span:hover, .gameOverReset span:hover {
-    background-color: greenyellow;
-    color: black;
+    border: 1px solid greenyellow;
+    color: white;
     cursor: pointer;
 }
 
@@ -22,4 +26,14 @@
     position:absolute;
     top:5%;
     left:5%;
+}
+
+.wrong span{
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+.wrong span:hover{
+    border: 1px solid red !important;
 }

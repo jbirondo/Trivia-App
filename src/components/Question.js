@@ -31,32 +31,39 @@ class Question extends React.Component {
         return arr
     }
 
-    onAnswerLIClick(answer){
-        this.index ++
-        if(answer === this.data.correct && this.moreQuestions()){
-            this.data = data[this.index]
-            this.setState({
-                score: this.state.score += 1,
-                question: this.data.question,
-                incorrect: this.data.incorrect,
-                correct: this.data.correct
-            })
-        }else if(answer === this.data.correct && !this.moreQuestions()){
-            this.setState({
-                score: this.state.score += 1
-            })
-        }else if(answer !== this.data.correct && this.moreQuestions()){
-            this.data = data[this.index]
-            this.setState({
-                question: this.data.question,
-                incorrect: this.data.incorrect,
-                correct: this.data.correct
-            })
-        }else if(answer !== this.data.correct && !this.moreQuestions()){
-            this.setState({
-                score: this.state.score
-            })
+    onAnswerLIClick(e){
+        console.log(e.currentTarget.innerText)
+        if(e.currentTarget.innerText !== this.state.correct){
+            e.currentTarget.classList.add("wrong")
         }
+        // debugger
+        setTimeout(() => {
+            // this.index ++
+            // if(answer === this.data.correct && this.moreQuestions()){
+            //     this.data = data[this.index]
+            //     this.setState({
+            //         score: this.state.score += 1,
+            //         question: this.data.question,
+            //         incorrect: this.data.incorrect,
+            //         correct: this.data.correct
+            //     })
+            // }else if(answer === this.data.correct && !this.moreQuestions()){
+            //     this.setState({
+            //         score: this.state.score += 1
+            //     })
+            // }else if(answer !== this.data.correct && this.moreQuestions()){
+            //     this.data = data[this.index]
+            //     this.setState({
+            //         question: this.data.question,
+            //         incorrect: this.data.incorrect,
+            //         correct: this.data.correct
+            //     })
+            // }else if(answer !== this.data.correct && !this.moreQuestions()){
+            //     this.setState({
+            //         score: this.state.score
+            //     })
+            // }
+        }, 2000);
     }
 
     moreQuestions(){
@@ -94,7 +101,7 @@ class Question extends React.Component {
                             {this.shuffle([...new Set(this.combine(this.state.incorrect, this.state.correct))]).map(answer=> {
                                 return  <li className="questionAnswerLI"
                                 key={answer}
-                                onClick={() => (this.onAnswerLIClick(answer))}>
+                                onClick={(e) => (this.onAnswerLIClick(e))}>
                                                 <span>{answer}</span>
                                         </li>
                             })}
