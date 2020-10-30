@@ -32,37 +32,39 @@ class Question extends React.Component {
     }
 
     onAnswerLIClick(e){
-        console.log(e.currentTarget.innerText)
+        e.preventDefault()
         if(e.currentTarget.innerText !== this.state.correct){
             e.currentTarget.classList.add("wrong")
+        }else{
+            e.currentTarget.classList.add("correct")
         }
-        // debugger
+        let answer = e.currentTarget.innerText
         setTimeout(() => {
-            // this.index ++
-            // if(answer === this.data.correct && this.moreQuestions()){
-            //     this.data = data[this.index]
-            //     this.setState({
-            //         score: this.state.score += 1,
-            //         question: this.data.question,
-            //         incorrect: this.data.incorrect,
-            //         correct: this.data.correct
-            //     })
-            // }else if(answer === this.data.correct && !this.moreQuestions()){
-            //     this.setState({
-            //         score: this.state.score += 1
-            //     })
-            // }else if(answer !== this.data.correct && this.moreQuestions()){
-            //     this.data = data[this.index]
-            //     this.setState({
-            //         question: this.data.question,
-            //         incorrect: this.data.incorrect,
-            //         correct: this.data.correct
-            //     })
-            // }else if(answer !== this.data.correct && !this.moreQuestions()){
-            //     this.setState({
-            //         score: this.state.score
-            //     })
-            // }
+            this.index ++
+            if(answer === this.data.correct && this.moreQuestions()){
+                this.data = data[this.index]
+                this.setState({
+                    score: this.state.score += 1,
+                    question: this.data.question,
+                    incorrect: this.data.incorrect,
+                    correct: this.data.correct
+                })
+            }else if(answer === this.data.correct && !this.moreQuestions()){
+                this.setState({
+                    score: this.state.score += 1
+                })
+            }else if(answer !== this.data.correct && this.moreQuestions()){
+                this.data = data[this.index]
+                this.setState({
+                    question: this.data.question,
+                    incorrect: this.data.incorrect,
+                    correct: this.data.correct
+                })
+            }else if(answer !== this.data.correct && !this.moreQuestions()){
+                this.setState({
+                    score: this.state.score
+                })
+            }
         }, 2000);
     }
 

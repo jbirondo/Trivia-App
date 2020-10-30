@@ -37,3 +37,14 @@
 .wrong span:hover{
     border: 1px solid red !important;
 }
+
+.correct span{
+    background-color: greenyellow;
+    color: black;
+    cursor: pointer;
+}
+
+.correct span:hover{
+    border: 1px solid greenyellow !important;
+    color: black;
+}
