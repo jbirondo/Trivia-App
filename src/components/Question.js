@@ -6,12 +6,12 @@ class Question extends React.Component {
     constructor(props) {
         super(props);
         this.index =  0
-        this.data = data[this.index] || undefined
+        this.data = data[this.index]
         this.state  = {
             score: 0,
-            question: this.data.question || undefined,
-            incorrect: this.data.incorrect || undefined,
-            correct: this.data.correct || undefined
+            question: this.data.question,
+            incorrect: this.data.incorrect,
+            correct: this.data.correct
         }
     }
 
@@ -40,10 +40,20 @@ class Question extends React.Component {
                 incorrect: this.data.incorrect,
                 correct: this.data.correct
             })
-        }
-        if(answer === this.data.correct && !this.moreQuestions()){
+        }else if(answer === this.data.correct && !this.moreQuestions()){
             this.setState({
                 score: this.state.score += 1
+            })
+        }else if(answer !== this.data.correct && this.moreQuestions()){
+            this.data = data[this.index]
+            this.setState({
+                question: this.data.question,
+                incorrect: this.data.incorrect,
+                correct: this.data.correct
+            })
+        }else if(answer !== this.data.correct && !this.moreQuestions()){
+            this.setState({
+                score: this.state.score
             })
         }
     }
@@ -57,31 +67,26 @@ class Question extends React.Component {
         this.data = data[this.index]
         this.setState({
             score: 0,
-            question: this.data.question || undefined,
-            incorrect: this.data.incorrect || undefined,
-            correct: this.data.correct || undefined
+            question: this.data.question,
+            incorrect: this.data.incorrect,
+            correct: this.data.correct
         })
     }
 
     render(){
-        let question = this.state.question
-        let answers = this.combine(this.state.incorrect, this.state.correct)
-        let shuffledAnswers = this.shuffle(answers)
-        let correctAnswer = this.state.correct
-        console.log(answers, shuffledAnswers)
         if(this.moreQuestions()){
             return(
                 <div className="questionContainer">
-                    <div className="questionQuestion">Question : {question} </div>
+                    <div className="questionQuestion">Question : {this.state.question} </div>
                     <ul className="questionPotentialAnswersUL">Potential Answers:
-                        {shuffledAnswers.map(answer=> {
+                        {this.shuffle([...new Set(this.combine(this.state.incorrect, this.state.correct))]).map(answer=> {
                             return <li  className="questionAnswerLI"
                                         key={answer}
                                         onClick={() => (this.onAnswerLIClick(answer)) }
                                         >{answer}</li>
                         })}
                     </ul>
-                    <div className="questionCorrect">Correct: {correctAnswer}</div>
+                    <div className="questionCorrect">Correct: {this.state.correct}</div>
                     <div className="questionScore">Score: {this.state.score}</div>
                 </div>
             )
