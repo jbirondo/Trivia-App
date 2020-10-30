@@ -38,6 +38,12 @@ class Question extends React.Component {
         }else{
             e.currentTarget.classList.add("correct")
         }
+        let nl = e.currentTarget.parentElement.querySelectorAll("li")
+        nl.forEach(node => {
+            if(node.innerText === this.state.correct){
+                node.classList.add("correct")
+            }
+        })
         let answer = e.currentTarget.innerText
         setTimeout(() => {
             this.index ++
