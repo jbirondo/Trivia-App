@@ -20,7 +20,7 @@
 .questionScore{
     position:absolute;
     bottom:5%;
-    right:5%;
+    left:5%;
 }
 .questionHighScore{
     position:absolute;

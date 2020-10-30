@@ -5,10 +5,12 @@ import Bio from "./components/Bio"
 function App() { 
 
   return (
-    <div className="App">
+    <div className="App" id="outer-container">
+      <Bio pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
       <header className="App-header">
-        <Bio/>
-        <Question/>
+        <div id="page-wrap">
+          <Question/>
+        </div>
       </header>
     </div>
   )
