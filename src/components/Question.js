@@ -65,6 +65,15 @@ class Question extends React.Component {
     resetButton(){
         this.index = 0
         this.data = data[this.index]
+        const highscore = localStorage.getItem("highscore");
+        if(highscore !== null){
+            if (this.state.score > highscore) {
+                localStorage.setItem("highscore", this.state.score);      
+            }
+        }
+        else{
+            localStorage.setItem("highscore", this.state.score);
+        }
         this.setState({
             score: 0,
             question: this.data.question,
@@ -84,19 +93,23 @@ class Question extends React.Component {
                                 return  <li className="questionAnswerLI"
                                 key={answer}
                                 onClick={() => (this.onAnswerLIClick(answer))}>
-                                                {answer}
+                                                <span>{answer}</span>
                                         </li>
                             })}
                         </ul>
                     </div>
                     <div className="questionScore">Score: {this.state.score}</div>
+                    <div className="questionHighScore">High Score: {localStorage.getItem("highscore")}</div>
                 </div>
             )
         }else{
             return(
                 <div className="gameOverContainer">
                     <div className="gameOverMessage">Game over! Your final score was {this.state.score}</div>
-                    <div className="gameOverReset"onClick={() => (this.resetButton())}>Try again?</div>
+                    <div className="gameOverReset"onClick={() => (this.resetButton())}>
+                        <span>Try again?</span>
+                    </div>
+                    <div className="questionHighScore">High Score: {localStorage.getItem("highscore")}</div>
                 </div>
             )
         }

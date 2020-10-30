@@ -1,15 +1,25 @@
+.questionContainer{
+    display: flex;
+    flex-direction: column;
+}
 
 .questionPotentialAnswersUL{
     list-style-type: none
 }
 
-.questionAnswerLI:hover{
+.questionAnswerLI span:hover, .gameOverReset span:hover {
     background-color: greenyellow;
     color: black;
+    cursor: pointer;
 }
 
 .questionScore{
     position:absolute;
     bottom:5%;
     right:5%;
+}
+.questionHighScore{
+    position:absolute;
+    top:5%;
+    left:5%;
 }
