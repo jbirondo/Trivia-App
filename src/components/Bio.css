@@ -74,3 +74,11 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .bm-overlay {
     background: rgba(0, 0, 0, 0.3);
 }
+
+.contactInfo {
+    list-style-type: none;
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 6% 0 0 0 !important;
+}
