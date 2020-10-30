@@ -6,7 +6,8 @@ class Question extends React.Component {
     constructor(props) {
         super(props);
         this.index =  0
-        this.data = data[this.index]
+        this.array = this.shuffle(data).slice(0,10)
+        this.data = this.array[this.index]
         this.state  = {
             score: 0,
             question: this.data.question,
@@ -59,11 +60,12 @@ class Question extends React.Component {
     }
 
     moreQuestions(){
-        return this.index < data.length 
+        return this.index < this.array.length 
     }
 
     resetButton(){
         this.index = 0
+        this.array = this.shuffle(data).slice(0,10)
         this.data = data[this.index]
         const highscore = localStorage.getItem("highscore");
         if(highscore !== null){
@@ -109,6 +111,7 @@ class Question extends React.Component {
                     <div className="gameOverReset"onClick={() => (this.resetButton())}>
                         <span>Try again?</span>
                     </div>
+                    <div className="questionScore">Score: {this.state.score}</div>
                     <div className="questionHighScore">High Score: {localStorage.getItem("highscore")}</div>
                 </div>
             )
