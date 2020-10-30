@@ -1,0 +1,8 @@
+.questionPotentialAnswersUL{
+    list-style-type: none
+}
+
+.questionAnswerLI:hover{
+    background-color: greenyellow;
+    color: black;
+}
