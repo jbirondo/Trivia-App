@@ -1,5 +1,5 @@
 import React from "react";
-import { stack as Menu } from 'react-burger-menu'
+import { slide as Menu } from 'react-burger-menu'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedinIn, faGithub, faAngellist } from '@fortawesome/free-brands-svg-icons'
 import "./Bio.css"
@@ -23,11 +23,17 @@ class Bio extends React.Component {
                     <p> 
                         Ruby, Ruby on Rails, JavaScript, Python, React, Redux, Node.js, Docker, GraphQL, Linux, Unix
                     </p>
-                <ul className="contactInfo">
-                    <li key="linkedin"><FontAwesomeIcon icon={faLinkedinIn}/></li>
-                    <li key="github"><FontAwesomeIcon icon={faGithub}/></li>
-                    <li key="angellist"><FontAwesomeIcon icon={faAngellist}/></li>
-                </ul>
+                <div className="contactInfo">
+                        <a href="https://www.linkedin.com/in/eugene-birondo-702637192/" target="_blank">
+                            <FontAwesomeIcon icon={faLinkedinIn}/>
+                        </a>
+                        <a href="https://github.com/jbirondo" target="_blank">
+                            <FontAwesomeIcon icon={faGithub}/>
+                        </a>
+                        <a href="https://angel.co/u/eugene-birondo" target="_blank">
+                            <FontAwesomeIcon icon={faAngellist}/>
+                        </a>
+                </div>
 
             </Menu>
         );

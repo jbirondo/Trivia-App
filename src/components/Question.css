@@ -4,16 +4,25 @@
 }
 
 .questionPotentialAnswersUL{
-    list-style-type: none
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    height: 150px;
 }
 
-.questionAnswerLI{
-    padding: 3px 0 3px 0
+.questionAnswerLI {
+    padding: 1% 1% 1% 1%;
+    margin: 10px;
+    width: 40%;
+    border: 2px solid greenyellow;
+    border-radius: 12px;
+    /* background-color: green; */
 }
 
-.questionAnswerLI span:hover, .gameOverReset span:hover {
-    border: 1px solid greenyellow;
-    color: white;
+.questionAnswerLI:hover, .gameOverReset:hover {
+    background-color: greenyellow;
+    color: black;
     cursor: pointer;
 }
 
@@ -28,17 +37,21 @@
     left:5%;
 }
 
-.wrong span{
+.wrong{
+    border: 2px solid red !important;
     background-color: red;
     color: white;
     cursor: pointer;
 }
 
-.wrong span:hover{
-    border: 1px solid red !important;
+.wrong:hover{
+    border: 2px solid red !important;
+    background-color: red;
+    color: white;
+    cursor: pointer;
 }
 
-.correct span{
+.correct{
     background-color: greenyellow;
     color: black;
     cursor: pointer;

@@ -71,7 +71,7 @@ class Question extends React.Component {
                     score: this.state.score
                 })
             }
-        }, 2000);
+        }, 1500);
     }
 
     moreQuestions(){
