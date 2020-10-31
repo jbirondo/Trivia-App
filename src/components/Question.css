@@ -7,17 +7,83 @@
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     align-content: space-around;
     height: 150px;
+    padding: 0;
 }
 
-.questionAnswerLI {
+.questionAnswerLI{
     padding: 1% 1% 1% 1%;
     margin: 10px;
     width: 40%;
     border: 2px solid greenyellow;
     border-radius: 12px;
     /* background-color: green; */
+    opacity: 0;
+    -webkit-animation: fadeIn 0.9s 1;
+    animation: fadeIn 0.9s 1;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+.questionPotentialAnswersUL li:nth-child(1) {
+    -webkit-animation-delay: 0.25s;
+    animation-delay: 0.25s;
+}
+
+.questionPotentialAnswersUL li:nth-child(2) {
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+
+.questionPotentialAnswersUL li:nth-child(3) {
+    -webkit-animation-delay: 0.75s;
+    animation-delay: 0.75s;
+}
+
+.questionPotentialAnswersUL li:nth-child(4) {
+    -webkit-animation-delay: 1.0s;
+    animation-delay: 1.0s;
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+.gameOverContainer{
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    justify-content: space-evenly;
+    align-items: center
+}
+
+.gameOverReset{
+    padding: 1% 1% 1% 1%;
+    margin: 10px;
+    width: 55%;
+    border: 2px solid greenyellow;
+    border-radius: 12px;
+    opacity: 0;
+    -webkit-animation: fadeIn ease 3s;
+    animation: fadeIn ease 3s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
 }
 
 .questionAnswerLI:hover, .gameOverReset:hover {
@@ -60,4 +126,29 @@
 .correct span:hover{
     border: 1px solid greenyellow !important;
     color: black;
+}
+
+.plueOne{
+    position:absolute;
+    bottom:6%;
+    left:11%;
+    visibility:hidden;
+}
+
+.flash{
+    visibility: visible;
+    -webkit-animation: float ease 1.5s;
+    animation: float ease 1.5s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    color:greenyellow;
+}
+
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+    100% {
+        transform: translatey(-20px);
+    }
 }

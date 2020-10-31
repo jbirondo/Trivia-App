@@ -33,17 +33,18 @@ class Question extends React.Component {
 
     onAnswerLIClick(e){
         e.preventDefault()
-        if(e.currentTarget.innerText !== this.state.correct){
-            e.currentTarget.classList.add("wrong")
-        }else{
-            e.currentTarget.classList.add("correct")
-        }
         let nl = e.currentTarget.parentElement.querySelectorAll("li")
         nl.forEach(node => {
             if(node.innerText === this.state.correct){
                 node.classList.add("correct")
+            }else{
+                node.classList.add("wrong")
             }
         })
+        let plusOne = document.getElementsByClassName("lastChild")[0].lastChild
+        if(e.currentTarget.innerText === this.state.correct){
+            plusOne.classList.add("flash")
+        }
         let answer = e.currentTarget.innerText
         setTimeout(() => {
             this.index ++
@@ -71,6 +72,7 @@ class Question extends React.Component {
                     score: this.state.score
                 })
             }
+            plusOne.classList.remove("flash")
         }, 1500);
     }
 
@@ -102,7 +104,7 @@ class Question extends React.Component {
     render(){
         if(this.moreQuestions()){
             return(
-                <div>
+                <div className="lastChild">
                     <div className="questionContainer">
                         <div className="questionQuestion">Question {this.index + 1}: {this.state.question} </div>
                         <ul className="questionPotentialAnswersUL">
@@ -117,6 +119,7 @@ class Question extends React.Component {
                     </div>
                     <div className="questionScore">Score: {this.state.score}</div>
                     <div className="questionHighScore">High Score: {localStorage.getItem("highscore")}</div>
+                    <div className="plueOne">+1</div>
                 </div>
             )
         }else{
