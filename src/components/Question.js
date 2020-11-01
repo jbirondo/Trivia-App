@@ -1,5 +1,8 @@
 import data from "../Apprentice_TandemFor400_Data.json"
 import React from 'react';
+import button from "./sounds/button.wav"
+import correct from "./sounds/correct.mp3"
+import wrong from "./sounds/wrong.mp3"
 import './Question.css'
 
 class Question extends React.Component {
@@ -47,9 +50,15 @@ class Question extends React.Component {
                 node.classList.add("wrong")
             }
         })
-        let plusOne = document.getElementsByClassName("lastChild")[0].lastChild
+        const plusOne = document.getElementsByClassName("lastChild")[0].lastChild
+        let click
         if(e.currentTarget.innerText === this.state.correct){
             plusOne.classList.add("flash")
+            click = new Audio(correct)
+            click.play()
+        }else{
+            click = new Audio(wrong)
+            click.play()
         }
         const highscore = localStorage.getItem("highscore");
         const answer = e.currentTarget.innerText
@@ -103,6 +112,8 @@ class Question extends React.Component {
             incorrect: this.data.incorrect,
             correct: this.data.correct
         })
+        const reset = new Audio(button)
+        reset.play()
     }
 
     render(){
@@ -131,7 +142,7 @@ class Question extends React.Component {
                 <div className="gameOverContainer">
                     <div className="gameOverMessage">Game over! Your final score was {this.state.score}</div>
                     <div className="gameOverReset"onClick={() => (this.resetButton())}>
-                        <span>Try again?</span>
+                        <span>Play again?</span>
                     </div>
                     <div className="questionScore">Score: {this.state.score}</div>
                     <div className="questionHighScore">High Score: {localStorage.getItem("highscore")}</div>

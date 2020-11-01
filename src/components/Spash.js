@@ -1,6 +1,8 @@
 import React from 'react';
 import Question from "./Question"
 import tandem from "./images/tandem.png"
+import button from "./sounds/button.wav"
+import "./Splash.css"
 
 class Splash extends React.Component{
     constructor(props){
@@ -11,6 +13,8 @@ class Splash extends React.Component{
     }
 
     startButton(){
+        let sound = new Audio(button)
+        sound.play()
         this.setState({
             start: true
         })

@@ -1,0 +1,44 @@
+.splashContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.splashStartButton{
+    padding: 1% 1% 1% 1%;
+    margin: 10px;
+    width: 28%;
+    border: 2px solid greenyellow;
+    border-radius: 12px;
+    opacity: 0;
+    -webkit-animation: fadeIn ease 3s;
+    animation: fadeIn ease 3s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+.splashStartButton:hover{
+    background-color: greenyellow;
+    color: black;
+    cursor: pointer;
+}
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0.0;
+    }
+
+    100% {
+        opacity: 1.0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0.0;
+    }
+
+    100% {
+        opacity: 1.0;
+    }
+}
