@@ -33,4 +33,4 @@ It Takes Two to Tandem was built for Tandem's Apprentice Software Engineer progr
 - The correct answer must be revealed after a user has submitted their answer.
 - A user can see the score they received at the end of the round
 
-![QuestionsAndAnswers](./questionsandanswers.gif)
+![](questionandanswers.gif)
