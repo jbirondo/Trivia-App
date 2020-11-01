@@ -1,3 +1,3 @@
-# It Takes Two to Tandem: A Singleplayer Trivia Game
+# It Takes Two to Tandem: The singleplayer trivia game
 
 ![SplashPage](splashss.png)
