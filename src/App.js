@@ -1,5 +1,4 @@
 import './App.css';
-import Question from "./components/Question"
 import Bio from "./components/Bio"
 import Splash from "./components/Spash"
 

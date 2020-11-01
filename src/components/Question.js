@@ -13,7 +13,6 @@ class Question extends React.Component {
             question: this.data.question,
             incorrect: this.data.incorrect,
             correct: this.data.correct,
-            start: false
         }
     }
 
