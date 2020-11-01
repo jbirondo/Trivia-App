@@ -1,6 +1,7 @@
 import './App.css';
 import Question from "./components/Question"
 import Bio from "./components/Bio"
+import Splash from "./components/Spash"
 
 function App() { 
 
@@ -9,7 +10,7 @@ function App() {
       <Bio pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
       <header className="App-header">
         <div id="page-wrap">
-          <Question/>
+          <Splash/>
         </div>
       </header>
     </div>

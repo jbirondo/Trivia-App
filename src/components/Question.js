@@ -12,7 +12,14 @@ class Question extends React.Component {
             score: 0,
             question: this.data.question,
             incorrect: this.data.incorrect,
-            correct: this.data.correct
+            correct: this.data.correct,
+            start: false
+        }
+    }
+
+    componentDidMount() {
+        if(localStorage.getItem("highscore") === null){
+            localStorage.setItem("highscore", 0);
         }
     }
 
@@ -33,7 +40,7 @@ class Question extends React.Component {
 
     onAnswerLIClick(e){
         e.preventDefault()
-        let nl = e.currentTarget.parentElement.querySelectorAll("li")
+        const nl = e.currentTarget.parentElement.querySelectorAll("li")
         nl.forEach(node => {
             if(node.innerText === this.state.correct){
                 node.classList.add("correct")
@@ -45,7 +52,8 @@ class Question extends React.Component {
         if(e.currentTarget.innerText === this.state.correct){
             plusOne.classList.add("flash")
         }
-        let answer = e.currentTarget.innerText
+        const highscore = localStorage.getItem("highscore");
+        const answer = e.currentTarget.innerText
         setTimeout(() => {
             this.index ++
             if(answer === this.data.correct && this.moreQuestions()){
@@ -60,6 +68,9 @@ class Question extends React.Component {
                 this.setState({
                     score: this.state.score += 1
                 })
+                if (this.state.score > highscore) {
+                    localStorage.setItem("highscore", this.state.score);   
+                }
             }else if(answer !== this.data.correct && this.moreQuestions()){
                 this.data = data[this.index]
                 this.setState({
@@ -71,6 +82,9 @@ class Question extends React.Component {
                 this.setState({
                     score: this.state.score
                 })
+                if (this.state.score > highscore) {
+                    localStorage.setItem("highscore", this.state.score);      
+                }
             }
             plusOne.classList.remove("flash")
         }, 1500);
@@ -84,15 +98,6 @@ class Question extends React.Component {
         this.index = 0
         this.array = this.shuffle(data).slice(0,10)
         this.data = data[this.index]
-        const highscore = localStorage.getItem("highscore");
-        if(highscore !== null){
-            if (this.state.score > highscore) {
-                localStorage.setItem("highscore", this.state.score);      
-            }
-        }
-        else{
-            localStorage.setItem("highscore", this.state.score);
-        }
         this.setState({
             score: 0,
             question: this.data.question,

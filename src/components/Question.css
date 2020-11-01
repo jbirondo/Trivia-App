@@ -94,13 +94,13 @@
 
 .questionScore{
     position:absolute;
-    bottom:5%;
-    left:5%;
+    bottom:40px;
+    left:40px;
 }
 .questionHighScore{
     position:absolute;
-    top:5%;
-    left:5%;
+    top:40px;
+    left:40px;
 }
 
 .wrong{
@@ -130,8 +130,8 @@
 
 .plueOne{
     position:absolute;
-    bottom:6%;
-    left:11%;
+    bottom:50px;
+    left:113px;
     visibility:hidden;
 }
 

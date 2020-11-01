@@ -12,7 +12,7 @@ class Bio extends React.Component {
     render () {
           return (
             <Menu right>
-                <img src="https://media-exp1.licdn.com/dms/image/C5603AQE1q7mCXD5Ksw/profile-displayphoto-shrink_200_200/0?e=1609372800&v=beta&t=SsLOR6HGjZre1PR3KF7JIZ0PiS9tSne46NPabaHTS1Y"></img>
+                <img src="https://media-exp1.licdn.com/dms/image/C5603AQE1q7mCXD5Ksw/profile-displayphoto-shrink_200_200/0?e=1609372800&v=beta&t=SsLOR6HGjZre1PR3KF7JIZ0PiS9tSne46NPabaHTS1Y" alt=""></img>
                 <h3>Eugene Birondo</h3>
                     <p>
                         Software Developer
@@ -24,13 +24,13 @@ class Bio extends React.Component {
                         Ruby, Ruby on Rails, JavaScript, Python, React, Redux, Node.js, Docker, GraphQL, Linux, Unix
                     </p>
                 <div className="contactInfo">
-                        <a href="https://www.linkedin.com/in/eugene-birondo-702637192/" target="_blank">
+                        <a href="https://www.linkedin.com/in/eugene-birondo-702637192/" target="_blank" rel="noreferrer">
                             <FontAwesomeIcon icon={faLinkedinIn}/>
                         </a>
-                        <a href="https://github.com/jbirondo" target="_blank">
+                        <a href="https://github.com/jbirondo" target="_blank" rel="noreferrer">
                             <FontAwesomeIcon icon={faGithub}/>
                         </a>
-                        <a href="https://angel.co/u/eugene-birondo" target="_blank">
+                        <a href="https://angel.co/u/eugene-birondo" target="_blank" rel="noreferrer">
                             <FontAwesomeIcon icon={faAngellist}/>
                         </a>
                 </div>
