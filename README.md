@@ -2,7 +2,7 @@
 
 ![SplashPage](splashss.png)
 
-https://tandem-trivia-app.herokuapp.com/
+https://tandem-trivia-app.herokuapp.com/ 
 
 # Technologies
 - JavaScript
@@ -90,10 +90,16 @@ render(){
                 </li>
     })}
 </ul>
+...
 }
-
 ```
 - CSS animation on game start, answer, and game reset buttons and plus one on correct answer.
 ![](./bonusfeatures.gif)
+
 - Utilized localStorage to generate a localStorage high score.
 - Added bio burger menu with info about the creator.
+![](./bio.gif)
+
+# Items to work on
+- Unit testing
+
