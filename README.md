@@ -4,6 +4,12 @@
 
 https://tandem-trivia-app.herokuapp.com/ 
 
+To run in Node developement enviornment, download zip or clone repo, change directory to the repo, then in command line run:
+```
+$ npm install
+$ npm start
+```
+
 # Technologies
 - JavaScript
 - React.js
