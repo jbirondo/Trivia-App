@@ -8,7 +8,7 @@ import "./Bio.css"
 class Bio extends React.Component {
     showSettings (event) {
         event.preventDefault();
-  }
+    }
 
     render () {
           return (
